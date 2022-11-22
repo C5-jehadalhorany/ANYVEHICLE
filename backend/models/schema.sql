@@ -26,20 +26,13 @@ CREATE TABLE maintenance(
     cartype VARCHAR(255),
     carmodel VARCHAR(255),
     note VARCHAR(255),
-    is_deleted TINYINT DEFAULT 0,
+    req_status VARCHAR(255) DEFAULT 'pindening',
     requester_id INT,
     FOREIGN KEY (requester_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE request (
-    id INT AUTO_INCREMENT NOT NULL,
-    req_status VARCHAR(255),
-    maintenance_id INT,
-    FOREIGN KEY (maintenance_id) REFERENCES maintenance(id),
-    is_deleted TINYINT DEFAULT 0,
-    PRIMARY KEY (id)
-);
 
 CREATE TABLE permissions (
     id INT AUTO_INCREMENT NOT NULL,
