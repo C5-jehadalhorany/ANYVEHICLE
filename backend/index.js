@@ -4,6 +4,7 @@ require("dotenv").config();
 const roleRouter = require("./routes/role");
 const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
+const maintenRouter= require("./routes/mainten")
 
 
 const app =express();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use("/role", roleRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
+app.use("/mainten", maintenRouter);
 
 const PORT =process.env.PORT || 5000;
 

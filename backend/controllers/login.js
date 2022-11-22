@@ -6,12 +6,12 @@ const jwt = require("jsonwebtoken");
 const login = (req, res) => {
     const { password } = req.body
     const email = req.body.email.toLowerCase();
-    const query = ` SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?`;
+    const query = `SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?`;
     const data = [email];
     console.log(email, password);
     connection.query(query, data, (err, result) => {
         if (err) {
-            return res.json({ err: err.message })
+            return res.json({ err: err.message });
         };
         if (result.length > 0) {
             bcrypt.compare(password, result[0].password, (err, response) => {
@@ -19,7 +19,8 @@ const login = (req, res) => {
                 if (response) {
                     const payload = {
                         userId: result[0].id,
-                        role: result[0].role_id,
+                        role_id: result[0].role_id,
+                        role:result[0].role,
                     };
                     const secret = process.env.SECRET;
                     const token = jwt.sign(payload, secret);
