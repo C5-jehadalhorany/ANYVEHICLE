@@ -42,7 +42,7 @@ const Register = () => {
 
     return (<>
         <div className="Form">
-            {isLoggedIn ? (
+            {!isLoggedIn ? (
                 <div className="AllForm">
                     <p className="Title">Register:</p>
                     <div className="InputAndButton">

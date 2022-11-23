@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/reducers/auth/index"
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
     const dispatch = useDispatch();
-   
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -21,6 +21,7 @@ const Login = () => {
             setMessage("");
             setStatus(true);
             dispatch(login(result.data.token))
+            navigate("/home")
         }).catch((err) => {
             setStatus(false);
             return setMessage(err.response.data.message);
