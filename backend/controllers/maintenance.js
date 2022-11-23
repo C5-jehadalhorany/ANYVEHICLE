@@ -1,10 +1,10 @@
 const connection = require("../models/db");
 
 const mainten = (req, res) => {
-    const { cartype, carmodel, note } = req.body
+    const { cartype, carmodel, note,ruinedparts } = req.body
     const requester_id = req.token.userId
-    const query = `INSERT INTO maintenance (cartype, carmodel, note,requester_id) VALUES(?,?,?,?)`;
-    const data = [cartype, carmodel, note, requester_id]
+    const query = `INSERT INTO maintenance (cartype, carmodel, note,ruinedparts,requester_id) VALUES(?,?,?,?,?)`;
+    const data = [cartype, carmodel, note,ruinedparts, requester_id]
     connection.query(query, data, (err, result) => {
         if (err) {
             return res.status(404).json({

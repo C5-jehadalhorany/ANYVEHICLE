@@ -26,6 +26,7 @@ CREATE TABLE maintenance(
     cartype VARCHAR(255),
     carmodel VARCHAR(255),
     note VARCHAR(255),
+    ruinedparts VARCHAR(255),
     req_status VARCHAR(255) DEFAULT 'pindening',
     requester_id INT,
     FOREIGN KEY (requester_id) REFERENCES users(id),
