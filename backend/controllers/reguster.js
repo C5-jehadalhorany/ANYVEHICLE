@@ -15,18 +15,19 @@ const register = async (req, res) => {
     const data = [firstName, email, encryptedpassword, role_id];
     connection.query(query, data, (err, result) => {
         if (err) {
-            res.status(409).json({
+            return res.status(409).json({
                 success: false,
                 massage: "the email already exists",
                 err: err.message
             });
         }
-        res.status(200).json({
+        return res.status(200).json({
             success: "true",
             massage: "Account created successfully",
             result
         });
     });
 };
+
 
 module.exports = { register }

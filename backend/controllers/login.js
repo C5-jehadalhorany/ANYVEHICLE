@@ -8,7 +8,6 @@ const login = (req, res) => {
     const email = req.body.email.toLowerCase();
     const query = `SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?`;
     const data = [email];
-    console.log(email, password);
     connection.query(query, data, (err, result) => {
         if (err) {
             return res.json({ err: err.message });

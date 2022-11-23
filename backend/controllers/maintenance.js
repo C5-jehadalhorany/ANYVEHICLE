@@ -5,9 +5,7 @@ const mainten = (req, res) => {
     const requester_id = req.token.userId
     const query = `INSERT INTO maintenance (cartype, carmodel, note,requester_id) VALUES(?,?,?,?)`;
     const data = [cartype, carmodel, note, requester_id]
-    console.log(data);
     connection.query(query, data, (err, result) => {
-        console.log(result);
         if (err) {
             return res.status(404).json({
                 success: false,
@@ -27,8 +25,6 @@ const mainten = (req, res) => {
 const getmaintenforadmin = (req, res) => {
     const userId = req.token.userId
     const role = req.token.role
-
-    // console.log(userId,role);
     if (role === "admin") {
         const query = `SELECT * FROM maintenance WHERE is_deleted=0;`
         connection.query(query, (err, result) => {
@@ -68,8 +64,8 @@ const getmaintenforadmin = (req, res) => {
 
 
 const adminReqBackToUser = (req, res) => {
-    const maint_id= req.params.maint_id;
-    const requst =req.body.req_status;
+    const maint_id = req.params.maint_id;
+    const requst = req.body.req_status;
     const query = `UPDATE maintenance SET req_status=? WHERE id=?;`;
     const data = [requst, maint_id]
     connection.query(query, data, (err, result) => {
