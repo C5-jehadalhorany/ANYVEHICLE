@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import ("./style.css");
 
 
 const Register = () => {
@@ -41,30 +41,30 @@ const Register = () => {
 
 
     return (<>
-        <div className="Form">
+        <div className="Form2">
             {!isLoggedIn ? (
                 <div className="AllForm">
                     <p className="Title">Register:</p>
                     <div className="InputAndButton">
-                        <input
+                        <input className="loginInput2"
                             type="text"
                             placeholder="First Name"
                             onChange={(e) => setFirstName(e.target.value)}
                         />
                         <br />
-                        <input
+                        <input className="loginInput2"
                             type="email"
                             placeholder="Email"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         <br />
-                        <input
+                        <input className="loginInput2"
                             type="password"
                             placeholder="Password"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <br />
-                        <button onClick={() => {
+                        <button className="buttonlogin2"  onClick={() => {
                             registerforuser()
                         }}>Register</button>
                     </div>

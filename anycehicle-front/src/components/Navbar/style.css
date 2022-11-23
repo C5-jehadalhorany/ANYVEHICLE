@@ -1,0 +1,74 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo {
+  width: 17vw;
+  height: 12vh;
+  float: left;
+}
+.all {
+  float: right;
+  width: 70%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  justify-items: center;
+}
+
+.allReg{
+    float: right;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+}
+
+.Link {
+  margin: 0% 3%;
+  text-decoration: none;
+  color: #939393;
+}
+.logout {
+    background: #d90429;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    border: none ;
+    height: 7vh;
+    width: 8vw;
+}
+.NavBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 12vh;
+  /* background: linear-gradient(80deg, rgb(201, 152, 152), rgb(24, 24, 105)); */
+  background: #242424;
+}
+
+.Link:hover{
+    color: white;
+    border-bottom: solid 3px #f6d72d;
+}
+
+.logout:active,
+.logout:focus {
+  border-bottom-style: none;
+  border-color: #dadada;
+  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+  outline: 0;
+}
+
+.logout:hover {
+  border-bottom-style: none;
+  border-color: #dadada;
+}

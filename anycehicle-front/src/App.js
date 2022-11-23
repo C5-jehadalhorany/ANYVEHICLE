@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Routes>
-        <Route path={"/"} element={<Register />} />
+        <Route path={"/register"} element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>

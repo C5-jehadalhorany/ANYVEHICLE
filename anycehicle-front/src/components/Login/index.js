@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/reducers/auth/index"
 import { useNavigate } from "react-router-dom";
+import ("./style.css")
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -31,24 +32,24 @@ const Login = () => {
 
 
 
-    return (<>
+    return (<div className="continer">
         <div className="Form">
             <p className="Title">Login:</p>
             <div >
                 <br />
-                <input
+                <input className="loginInput"
                     type="email"
                     placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <br />
-                <input
+                <input className="loginInput"
                     type="password"
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <br />
-                <button
+                <button className="buttonlogin" 
                     onClick={() => {
                         loginForall()
                     }}
@@ -58,7 +59,7 @@ const Login = () => {
             </div>
             {status ? message && <div >{message}</div> : message && <div >{message}</div>}
         </div>
-    </>
+    </div>
     );
 };
 
