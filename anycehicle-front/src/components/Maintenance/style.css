@@ -1,13 +1,25 @@
-.ceniter {
+.container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
   justify-items: center;
+  margin-top: 10%;
+  border: 2px solid #939393;
+  background-color: #242424 ;
+  color: white;
 }
 
 .radios {
   display: flex;
   flex-direction: row;
+}
+.buttonlogin3{
+    background: #d90429;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    border: none ;
+    
 }

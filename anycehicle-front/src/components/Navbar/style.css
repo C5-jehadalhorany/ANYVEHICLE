@@ -51,24 +51,10 @@
   top: 0;
   width: 100%;
   height: 12vh;
-  /* background: linear-gradient(80deg, rgb(201, 152, 152), rgb(24, 24, 105)); */
   background: #242424;
 }
 
 .Link:hover{
     color: white;
     border-bottom: solid 3px #f6d72d;
-}
-
-.logout:active,
-.logout:focus {
-  border-bottom-style: none;
-  border-color: #dadada;
-  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
-  outline: 0;
-}
-
-.logout:hover {
-  border-bottom-style: none;
-  border-color: #dadada;
 }
