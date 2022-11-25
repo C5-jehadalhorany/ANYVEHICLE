@@ -24,7 +24,7 @@ export const maintenance = createSlice({
         },
         deletemaintenance: (state, action) => {
             state.maintenance = state.maintenance.filter((element, index) => {
-                return element.id != action.payload;
+                return element.id !== action.payload;
             });
         },
     }
