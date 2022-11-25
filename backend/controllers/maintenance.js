@@ -1,10 +1,11 @@
 const connection = require("../models/db");
 
 const mainten = (req, res) => {
-    const { cartype, carmodel, note,ruinedparts } = req.body
+    const { cartype, carmodel, note, ruinedparts } = req.body
+    console.log(req.body);
     const requester_id = req.token.userId
-    const query = `INSERT INTO maintenance (cartype, carmodel, note,ruinedparts,requester_id) VALUES(?,?,?,?,?)`;
-    const data = [cartype, carmodel, note,ruinedparts, requester_id]
+    const query = `INSERT INTO maintenance (cartype,carmodel,note,ruinedparts,requester_id)VALUES(?,?,?,?,?)`;
+    const data = [cartype, carmodel, note, ruinedparts, requester_id]
     connection.query(query, data, (err, result) => {
         if (err) {
             return res.status(404).json({
@@ -20,7 +21,6 @@ const mainten = (req, res) => {
         });
     });
 };
-
 
 const getmaintenforadmin = (req, res) => {
     const userId = req.token.userId
@@ -45,7 +45,6 @@ const getmaintenforadmin = (req, res) => {
         const query = `SELECT * FROM maintenance WHERE is_deleted=0 and requester_id=?;`;
         const data = [userId]
         connection.query(query, data, (err, result) => {
-            console.log(userId);
             if (err) {
                 return res.status(500).json({
                     success: false,
@@ -61,7 +60,6 @@ const getmaintenforadmin = (req, res) => {
         })
     }
 }
-
 
 const adminReqBackToUser = (req, res) => {
     const maint_id = req.params.maint_id;
@@ -83,15 +81,6 @@ const adminReqBackToUser = (req, res) => {
         })
     })
 };
-
-
-
-
-
-
-
-
-
 
 module.exports = {
     mainten,
