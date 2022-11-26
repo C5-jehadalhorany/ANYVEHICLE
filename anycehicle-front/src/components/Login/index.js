@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/reducers/auth/index"
+import { useDispatch, useSelector } from "react-redux";
+import { login, role } from "../../redux/reducers/auth/index"
 import { useNavigate } from "react-router-dom";
-import ("./style.css")
+import("./style.css")
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
+
+    const { token, roles } = useSelector((state) => {
+        return {
+            token: state.auth.token,
+            roles: state.auth.roles
+        };
+    });
 
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -18,11 +25,19 @@ const Login = () => {
             email,
             password
         }).then((result) => {
-            console.log(result);
-            setMessage("");
-            setStatus(true);
-            dispatch(login(result.data.token))
-            navigate("/home")
+            if (roles === "admin") {
+                setMessage("");
+                setStatus(true);
+                dispatch(login(result.data.token))
+                dispatch(role(result.data.role))
+                navigate("/admin")
+            } else {
+                setMessage("");
+                setStatus(true);
+                dispatch(login(result.data.token))
+                dispatch(role(result.data.role))
+                navigate("/")
+            }
         }).catch((err) => {
             setStatus(false);
             return setMessage(err.response.data.message);
@@ -49,7 +64,7 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <br />
-                <button className="buttonlogin" 
+                <button className="buttonlogin"
                     onClick={() => {
                         loginForall()
                     }}
