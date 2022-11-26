@@ -1,0 +1,26 @@
+.adminSide{
+    width: 90%;
+    margin: 8% auto;
+}
+
+.mb-6{
+    display: flex;
+}
+
+.mb-7{
+    margin: auto 10%;
+}
+
+.buttonlogin4{
+    display: grid;
+    background: #d90429;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    border: none ;
+    margin: auto 25% 5% ;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}

@@ -9,6 +9,8 @@
   border: 2px solid #939393;
   background-color: #242424 ;
   color: white;
+  font-size: x-large;
+  width: 60%;
 }
 
 .radios {
@@ -21,5 +23,5 @@
     color: #fff;
     cursor: pointer;
     border: none ;
-    
+    margin: 5% auto;
 }

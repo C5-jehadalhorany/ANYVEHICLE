@@ -1,40 +1,33 @@
 .Form {
-    position: fixed;
-    left: 30%;
-    top: 30%;
-    height: 35vh;
-    width: 40vw;
-    border: 2px solid #939393;
-    border-radius: 5px;
-    background-color:#242424 ;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 1rem;
-}
-p{
-    margin-top: 1rem;
-}
-.loginInput{
-        height: 4vh;
-        width: 90%;
-        margin-top: 1rem;
+  position: fixed;
+  left: 30%;
+  top: 30%;
+  height: 35%;
+  width: 25%;
+  border: 2px solid #939393;
+  border-radius: 5px;
+  background-color: #242424;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.buttonlogin{
-    background: #d90429;
-    border-radius: 2px;
-    color: #fff;
-    cursor: pointer;
-    border: none ;
-    height: 7vh;
-    width: 8vw;
-    margin-top: 1rem;
-    
+.loginInput {
+  height: 3vh;
+  width: 90%;
+  margin:4% 4% ;
 }
 
-
-
-
-
+.buttonlogin {
+  background: #d90429;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  margin: 5% auto;
+  width: 25%;
+  height: 4vh;
+}

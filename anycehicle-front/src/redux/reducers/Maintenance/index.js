@@ -16,6 +16,7 @@ export const maintenance = createSlice({
         updatemaintenance: (state, action) => {
             state.maintenance = state.maintenance.map((element, index) => {
                 if (element.id === action.payload.id) {
+                    console.log(action.payload);
                     return element.id = action.payload;
                 } else {
                     return element
