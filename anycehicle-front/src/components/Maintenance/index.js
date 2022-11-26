@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addmaintenance } from "../../redux/reducers/Maintenance"
@@ -44,13 +44,12 @@ const Maintenance = () => {
                 }
             }).then((result) => {
                 dispatch(addmaintenance(data))
-                console.log(result.data);
             }).catch((err) => {
                 console.log(err);
             })
     }
 
-    
+
     return (
         <div className="container">
             <form onSubmit={handleSubmit(onSubmit)}>
