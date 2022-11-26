@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setmaintenance } from "../../redux/reducers/Maintenance"
-import {Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import("./style.css");
 
 
-
-
 const Usermaintenaces = () => {
-
     const dispatch = useDispatch();
+
     const { token, maintenance } = useSelector((state) => {
         return {
             token: state.auth.token,
             maintenance: state.maintenance.maintenance
         };
     });
-
-
 
     const userrequset = () => {
         axios.get("http://localhost:5000/mainten", {
@@ -36,6 +32,7 @@ const Usermaintenaces = () => {
     useEffect(() => {
         userrequset()
     }, [])
+
     return (<>
         <div className="sercies">
             {maintenance && maintenance.map((ele, index) => {
@@ -65,10 +62,7 @@ const Usermaintenaces = () => {
                 </div>)
             })}
         </div>
-
-
     </>)
-
 }
 
 export default Usermaintenaces

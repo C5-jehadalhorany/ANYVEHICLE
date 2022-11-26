@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ("./style.css");
+import("./style.css");
 
 
 const Register = () => {
@@ -27,7 +27,7 @@ const Register = () => {
             password,
             role_id
         }).then((result) => {
-            if (result.data.success) {                
+            if (result.data.success) {
                 setStatus(true);
                 navigate("/");
                 return setMessage(result.data.massage);
@@ -37,8 +37,6 @@ const Register = () => {
             return setMessage(err.response.data.massage);
         })
     }
-
-
 
     return (<>
         <div className="Form2">
@@ -64,7 +62,7 @@ const Register = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <br />
-                        <button className="buttonlogin2"  onClick={() => {
+                        <button className="buttonlogin2" onClick={() => {
                             registerforuser()
                         }}>Register</button>
                     </div>

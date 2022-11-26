@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, role } from "../../redux/reducers/auth/index"
 import { useNavigate } from "react-router-dom";
 import("./style.css")
+
+
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -43,9 +45,6 @@ const Login = () => {
             return setMessage(err.response.data.message);
         })
     }
-
-
-
 
     return (<div className="continer">
         <div className="Form">

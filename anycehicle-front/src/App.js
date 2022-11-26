@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Maintenance from './components/Maintenance';
 import AdminSide from './components/Adminside';
 import Usermaintenaces from './components/Usermaintenace';
-import { Charts } from './components/ChartForAdmin';
+import  Charts  from './components/ChartForAdmin';
 
 
 function App() {

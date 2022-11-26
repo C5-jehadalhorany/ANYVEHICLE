@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/reducers/auth/index"
 import logo from "./logos.png";
 import "./style.css"
+
+
 const NavBar = () => {
     const dispatch = useDispatch();
 

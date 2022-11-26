@@ -9,7 +9,6 @@ export const chart = createSlice({
     reducers: {
         setchartAction: (state, action) => {
             state.chart = action.payload
-            console.log(action.payload,"im here im redux");
         },
 
         reducechartAction: (state, action) => {

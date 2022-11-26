@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addmaintenance } from "../../redux/reducers/Maintenance"
@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import("./style.css");
+
 
 const Maintenance = () => {
     const dispatch = useDispatch();
@@ -49,11 +50,9 @@ const Maintenance = () => {
             })
     }
 
-
     return (
         <div className="container">
             <form onSubmit={handleSubmit(onSubmit)}>
-
                 {/* cartype */}
                 <Form.Group className="mb-3" controlId="cartype">
                     <Form.Label>Select cartype</Form.Label>
@@ -79,7 +78,6 @@ const Maintenance = () => {
                     />
                     {errors.gender && <p className="errorMsg">{errors.gender.message}</p>}
                 </Form.Group>
-
                 {/* carmodel */}
                 <Form.Group className="mb-3" controlId="carmodel">
                     <Form.Label>Select carmodel</Form.Label>
@@ -105,7 +103,6 @@ const Maintenance = () => {
                     />
                     {errors.gender && <p className="errorMsg">{errors.gender.message}</p>}
                 </Form.Group>
-
                 {/* ruinedparts */}
                 <Form.Group className="mb-3" controlId="ruinedparts">
                     <Form.Label>Select Your ruinedparts</Form.Label>
@@ -137,7 +134,6 @@ const Maintenance = () => {
                     />
                     {errors.ruinedparts && <p className="errorMsg">{errors.ruinedparts.message}</p>}
                 </Form.Group>
-
                 {/* note */}
                 <Form.Group className="mb-3" controlId="note">
                     <Form.Label>note</Form.Label>
@@ -152,7 +148,6 @@ const Maintenance = () => {
                     />
                     {errors.email && <p className="errorMsg">{errors.email.message}</p>}
                 </Form.Group>
-
                 <label></label>
                 <Button className="buttonlogin3" type="submit" >
                     Submit

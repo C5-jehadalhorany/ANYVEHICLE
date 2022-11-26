@@ -5,7 +5,7 @@ import { setmaintenance, updatemaintenance } from "../../redux/reducers/Maintena
 import { useForm } from "react-hook-form";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Table } from "react-bootstrap";
-import ("./style.css")
+import("./style.css")
 
 
 const AdminSide = () => {
@@ -16,9 +16,8 @@ const AdminSide = () => {
     } = useForm();
 
     const [id, setId] = useState("");
-
     const dispatch = useDispatch();
-    
+
     const { token, maintenance } = useSelector((state) => {
         return {
             token: state.auth.token,
@@ -26,15 +25,12 @@ const AdminSide = () => {
         };
     });
 
-
-
     const adminforcontoler = () => {
         axios.get("http://localhost:5000/mainten", {
             headers: {
                 Authorization: `Bearer ${token}`,
             }
         }).then((result) => {
-            console.log(result.data);
             dispatch(setmaintenance(result.data.result))
         }).catch((err) => {
             console.log(err);
@@ -42,12 +38,9 @@ const AdminSide = () => {
     }
 
     const onSubmit = (data) => {
-        console.log(data);
         let req_status = data.req_status
         updatmaintenanceingforadmin({ req_status: req_status })
-        
     };
-
 
     const updatmaintenanceingforadmin = (data) => {
         axios.put(`http://localhost:5000/mainten/${id}`, data, {
@@ -63,11 +56,9 @@ const AdminSide = () => {
         })
     }
 
-
     useEffect(() => {
-       return adminforcontoler()
-    },[])
-
+        return adminforcontoler()
+    }, [])
 
     return (<>
         <div className="adminSide">
@@ -94,7 +85,7 @@ const AdminSide = () => {
                                 <td>    <form onSubmit={handleSubmit(onSubmit)}>
                                     <Form.Group className="mb-6" controlId="req_status">
                                         {/* <Form.Label>Select req_status</Form.Label> */}
-                                        <Form.Check  className="mb-7" 
+                                        <Form.Check className="mb-7"
                                             type="radio"
                                             label="accepted"
                                             value="accepted"
