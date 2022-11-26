@@ -8,6 +8,7 @@ const login = (req, res) => {
     const query = `SELECT * FROM roles INNER JOIN users ON users.role_id=roles.id WHERE email=?`;
     const data = [email];
     connection.query(query, data, (err, result) => {
+
         if (err) {
             return res.json({ err: err.message });
         };
@@ -18,11 +19,15 @@ const login = (req, res) => {
                     const payload = {
                         userId: result[0].id,
                         role_id: result[0].role_id,
-                        role:result[0].role,
+                        role: result[0].role,
                     };
                     const secret = process.env.SECRET;
+                    let role = result[0].role
                     const token = jwt.sign(payload, secret);
-                    return res.status(200).json({ token });
+                    return res.status(200).json({
+                        token: token,
+                        role: role
+                    });
                 } else {
                     return res.status(200).json({
                         success: false,

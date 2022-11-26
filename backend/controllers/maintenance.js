@@ -2,7 +2,6 @@ const connection = require("../models/db");
 
 const mainten = (req, res) => {
     const { cartype, carmodel, note, ruinedparts } = req.body
-    console.log(req.body);
     const requester_id = req.token.userId
     const query = `INSERT INTO maintenance (cartype,carmodel,note,ruinedparts,requester_id)VALUES(?,?,?,?,?)`;
     const data = [cartype, carmodel, note, ruinedparts, requester_id]
@@ -63,9 +62,9 @@ const getmaintenforadmin = (req, res) => {
 
 const adminReqBackToUser = (req, res) => {
     const maint_id = req.params.maint_id;
-    const requst = req.body.req_status;
+    const req_status = req.body.req_status;
     const query = `UPDATE maintenance SET req_status=? WHERE id=?;`;
-    const data = [requst, maint_id]
+    const data = [req_status, maint_id]
     connection.query(query, data, (err, result) => {
         if (err) {
             return res.status(404).json({
