@@ -22,31 +22,34 @@ const NavBar = () => {
                     </div>
                     <div className="all">
                         {roles == "admin" ? (<>
-                            <Link className="Link" to="/">
+                            <Link className="Link" to="/home">
                                 Home
                             </Link>
                             <Link className="Link" to="/admin">
-                                admin
+                                Check Requests
                             </Link>
                             <Link className="Link" to="/req">
-                                Services
+                                All Requests
                             </Link>
-                            <Link className="Link" to="/home">
-                                Contact Us
+                            <Link className="Link" to="/">
+                                Requests Test
+                            </Link>
+                            <Link className="Link" to="/chart">
+                                Chart
                             </Link>
                             <Link className="Link" to="/login" >
                                 <button className="logout" onClick={() => { dispatch(logout()) }}>
                                     Logout
                                 </button>
                             </Link>
-                        </>) : (<><Link className="Link" to="/">
+                        </>) : (<><Link className="Link" to="/home">
                             Home
                         </Link>
-                            <Link className="Link" to="/about-us">
-                                About Us
+                            <Link className="Link" to="/">
+                                Send Requests
                             </Link>
                             <Link className="Link" to="/req">
-                                Services
+                                My Requests
                             </Link>
                             <Link className="Link" to="/blog">
                                 Blog

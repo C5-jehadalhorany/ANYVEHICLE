@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import Maintenance from './components/Maintenance';
 import AdminSide from './components/Adminside';
 import Usermaintenaces from './components/Usermaintenace';
+import { Charts } from './components/ChartForAdmin';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path="/" element={ <Maintenance/> } />
         <Route path="/admin" element={ <AdminSide/> } />
         <Route path="/req" element={ <Usermaintenaces/> } />
+        <Route path="/chart" element={ <Charts/> } />
       </Routes>
     </div>
   );
