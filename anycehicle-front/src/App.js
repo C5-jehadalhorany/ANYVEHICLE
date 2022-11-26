@@ -4,6 +4,9 @@ import NavBar from './components/Navbar';
 import Register from './components/Register';
 import { Route, Routes } from "react-router-dom";
 import Maintenance from './components/Maintenance';
+import AdminSide from './components/Adminside';
+import Usermaintenaces from './components/Usermaintenace';
+
 function App() {
   return (
     <div className="App">
@@ -12,7 +15,8 @@ function App() {
         <Route path={"/register"} element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={ <Maintenance/> } />
-       
+        <Route path="/admin" element={ <AdminSide/> } />
+        <Route path="/req" element={ <Usermaintenaces/> } />
       </Routes>
     </div>
   );
