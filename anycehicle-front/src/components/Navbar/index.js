@@ -6,9 +6,10 @@ import "./style.css"
 const NavBar = () => {
     const dispatch = useDispatch();
 
-    const { isLoggedIn } = useSelector((state) => {
+    const { isLoggedIn, roles } = useSelector((state) => {
         return {
             isLoggedIn: state.auth.isLoggedIn,
+            roles: state.auth.roles
         };
     });
 
@@ -20,29 +21,48 @@ const NavBar = () => {
                         <img className="logo" src={logo} alt="Logo" />
                     </div>
                     <div className="all">
-                        <Link className="Link" to="/">
+                        {roles == "admin" ? (<>
+                            <Link className="Link" to="/">
+                                Home
+                            </Link>
+                            <Link className="Link" to="/admin">
+                                admin
+                            </Link>
+                            <Link className="Link" to="/req">
+                                Services
+                            </Link>
+                            <Link className="Link" to="/home">
+                                Contact Us
+                            </Link>
+                            <Link className="Link" to="/login" >
+                                <button className="logout" onClick={() => { dispatch(logout()) }}>
+                                    Logout
+                                </button>
+                            </Link>
+                        </>) : (<><Link className="Link" to="/">
                             Home
                         </Link>
-                        <Link className="Link" to="/home">
-                            Aboout Us
-                        </Link>
-                        <Link className="Link" to="/home">
-                            Services
-                        </Link>
-                        <Link className="Link" to="/home">
-                            Blog
-                        </Link>
-                        <Link className="Link" to="/home">
-                            Shop
-                        </Link>
-                        <Link className="Link" to="/home">
-                            Contact Us
-                        </Link>
-                        <Link className="Link" >
-                            <button className="logout" onClick={() => { dispatch(logout()) }}>
-                                Logout
-                            </button>
-                        </Link>
+                            <Link className="Link" to="/about-us">
+                                About Us
+                            </Link>
+                            <Link className="Link" to="/req">
+                                Services
+                            </Link>
+                            <Link className="Link" to="/blog">
+                                Blog
+                            </Link>
+                            <Link className="Link" to="/shop">
+                                Shop
+                            </Link>
+                            <Link className="Link" to="/contact">
+                                Contact Us
+                            </Link>
+                            <Link className="Link" to="/login" >
+                                <button className="logout" onClick={() => { dispatch(logout()) }}>
+                                    Logout
+                                </button>
+                            </Link>
+                        </>)}
                     </div></>
                 ) : (
                     <>
